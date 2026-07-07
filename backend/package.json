@@ -1,14 +1,14 @@
 {
-  "name": "web_project_around_express",
+  "name": "web_project_api_full",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/labcvi-24/web_project_around_express#readme",
+  "homepage": "https://github.com/labcvi-24/web_project_api_full#readme",
   "bugs": {
     "url": "https://github.com/labcvi-24/web_project_around_express/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/labcvi-24/web_project_around_express.git"
+    "url": "git+https://github.com/labcvi-24/web_project_api_full.git"
   },
   "license": "ISC",
   "author": "luisandra briceño",

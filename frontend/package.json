@@ -2,7 +2,7 @@
   "name": "web_project_around_auth",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://labcvi-24.github.io/web_project_around_auth/",
+  "homepage": "https://visage.strangled.net",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
