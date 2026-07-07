@@ -1,0 +1,8 @@
+@media (min-width:320px) and (max-width: 476px){
+    .page{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+    }
+}

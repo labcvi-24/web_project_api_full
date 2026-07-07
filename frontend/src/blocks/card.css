@@ -1,0 +1,79 @@
+.cards__list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 880px;
+    margin: 60px auto;
+    gap: 15px;
+}
+
+.card{
+    background-color: #fff;
+    width: 282px;
+    color: #000;
+    border-radius: 10px;
+    position: relative;
+}
+
+.card__button-trash{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    right: 7px;
+    top: 8px;
+}
+
+.card__remove{
+    width: 100%;
+}
+.card__photo{
+    width: 282px;
+    height: 375px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+.card__description{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+    align-items: center;
+
+}
+
+.card__name{
+    max-width: 226px;
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: -1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.card__like-button{
+    background-image: url(../images/Group.svg);
+    width: 21px;
+    height: 19px;
+    cursor: pointer;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+}
+
+.card__like-button:hover{
+    opacity: 50%;
+}
+
+.card__like-button_is-active{
+    background-image: url(../images/union.png);
+}
+
+
+@media (min-width:320px) and (max-width: 476px) {
+    .cards{
+    max-width: 282px;
+    grid-template-columns: 1fr;
+    }
+}

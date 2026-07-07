@@ -1,0 +1,158 @@
+.profile{
+    max-width: 880px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+
+}
+
+.profile__user{
+    display: flex;
+    align-items: center;
+}
+
+.profile__avatar-container {
+  position: relative;
+  
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile__avatar{
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.profile__avatar-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.37); /* 17% de opacidad */
+  background-image: url("/src/images/vector1.png"); /* icono lápiz */
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+}
+
+.profile__avatar-container:hover .profile__avatar-overlay {
+  opacity: 1;
+}
+
+.profile__data{
+    display: flex;
+    align-items: center;
+}
+
+.profile__name{
+    max-width: 375px;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+    margin: 0 0 0 23px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.profile__button-edit{
+    all: unset;
+  margin-left: 15px;
+  cursor:pointer;
+}
+.profile__button-edit:hover{
+    opacity: 50%;
+}
+
+.profile__data-about{
+    max-width: 250px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    margin:0 0 0 23px;
+    margin-top: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.profile__button-add{
+    all: unset;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    border: 1px solid #fff;
+}
+
+.profile__button-add:hover{
+    opacity: 50%;
+
+}
+
+
+.profile__button{
+    /* background: url(../images/Vectormas.png); */
+    border: none;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    margin: auto;
+}
+
+
+
+@media (min-width: 320px) and (max-width:476px){
+    .profile__data{
+        margin-top: 35px;
+    }
+    .profile{
+        flex-direction: column;
+    }
+
+    .profile__photo{
+        padding: 0;
+    }
+    .profile__user{
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .profile__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .profile__data-about{
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 15px;
+
+    }
+    .profile__name{
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        text-align: center;
+    }
+
+    .profile__button-edit{
+        width: 18px;
+        height: 18px;
+        object-fit: cover;
+    }
+
+
+
+
+}

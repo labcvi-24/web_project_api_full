@@ -1,0 +1,23 @@
+.infotooltip__modal-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000; /* texto negro */
+  width: 430px;
+  height: 330px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.infotooltip__imagen{
+  width: 120px;
+  height: 120px;
+}
+
+.infotooltip__massage{
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+  max-width: 358px;
+}

@@ -1,0 +1,21 @@
+.footer{
+    max-width: 880px;
+    margin: 0 auto 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer__copyrigth{
+    color: #545454;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+
+@media (min-width:320px) and (max-width: 476px) {
+    .footer{
+        max-width: 282px;
+    }
+}

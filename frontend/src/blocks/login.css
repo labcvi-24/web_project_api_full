@@ -1,0 +1,42 @@
+.login{
+  display:block;
+}
+
+.login__content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.login__form{
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login__input{
+  background-color: transparent;
+  border-bottom:2px solid #CCCCCC;
+  color: #fff;
+}
+
+.login__submit{
+  margin-top:124px;
+  width: 358px;
+  height: 50px;
+  cursor:pointer;
+}
+
+.login__signup{
+  display: flex;
+  align-items: center;
+  color:#fff;
+}
+
+.login__signup-link{
+  text-decoration: none;
+  color: inherit;
+  margin-left: 5px;
+}
