@@ -1,4 +1,6 @@
 const express = require('express');
+require('dotenv').config();
+const cors = require('cors');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
 const validateUrl = require('./middleware/validateUrl');
@@ -25,36 +27,8 @@ app.use(express.json());
 
 // creacion u habilitacion de CORS
 
-const allowedCors = [
-  'https://visage.strangled.net',
-  'http://visage.strangled.net',
-  'http://localhost:3000'
-];
-
-app.use(function(req, res, next) {
-  const { origin } = req.headers; // guardar el origen de la solicitud en la variable 'origin'
-  const { method } = req; // Guardar un tipo de solicitud (método HTTP) para la variable correspondiente
-
-  // comprobar que el origen de la solicitud se mencione en la lista de los permitidos
-  if (allowedCors.includes(origin)) {
-    const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
-    const requestHeaders = req.headers['access-control-request-headers'];
-
-    res.header('Access-Control-Allow-Origin', origin);
-
-    if (method === 'OPTIONS') {
-
-    // permitir solicitudes de dominio cruzado de cualquier tipo (predeterminado)
-      res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-      res.header('Access-Control-Allow-Headers', requestHeaders);
-
-      return res.sendStatus(204);
-    }
-
-  }
-  next();
-
-});
+app.use(cors());
+app.options('*', cors()); //habilitar las solicitudes de todas las rutas
 
 //logger de solicitudes al servidor
 
@@ -63,6 +37,13 @@ app.use(expressWinston.logger({transports: [
   ],
   format: winston.format.json(),
 }));
+
+//en caso de que el servidor se caiga
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('El servidor va a caer');
+  }, 0);
+});
 
 // rutas publicas- sin proteccion
 // ruta para el inicio de sesión y el registro

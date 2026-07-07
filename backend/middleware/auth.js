@@ -1,4 +1,6 @@
 const jwt = require('jsonwebtoken');
+
+const { NODE_ENV, JWT_SECRET } = process.env;
 // Este middleware hará lo contrario del login.
 // En lugar de crear el token, lo verificará.
 
@@ -15,7 +17,10 @@ const token = authorization.split('Bearer ')[1];
 let payload;
 
   try {
-    payload = jwt.verify(token, 'super-strong-secret');
+    payload = jwt.verify(
+      token,
+      NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-secret'
+    );
   } catch (e) {
   const err = new Error('Se requiere autorización');
   err.statusCode = 401;

@@ -2,6 +2,13 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
+const SECRET_KEY =
+  NODE_ENV === 'production'
+    ? JWT_SECRET
+    : 'super-strong-secret';
+
 // donde se crea el token
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
@@ -16,6 +23,7 @@ module.exports.login = (req, res, next) => {
       return bcrypt.compare(password, foundUser.password)
         .then((matched) => {
           if (!matched) {
+             // si los hashes no coinciden, se rechaza el promise
             return Promise.reject(new Error('Incorrect password or email'));
           }
           return foundUser;
@@ -26,7 +34,7 @@ module.exports.login = (req, res, next) => {
       // autenticación exitosa
       res.send({ token: jwt.sign(
         { _id: foundUser._id },
-        'super-strong-secret',
+        NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-secret',
         {expiresIn: '7d'})});
 
     })
