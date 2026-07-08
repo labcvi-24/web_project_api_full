@@ -28,7 +28,7 @@ app.use(express.json());
 // creacion u habilitacion de CORS
 
 app.use(cors());
-app.options('*', cors()); //habilitar las solicitudes de todas las rutas
+// app.options('*', cors()); //habilitar las solicitudes de todas las rutas
 
 //logger de solicitudes al servidor
 
