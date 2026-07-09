@@ -8,8 +8,13 @@ export default function EditProfile(){
     const userContext = useContext(CurrentUserContext); // Obtiene el objeto currentUser
     const { currentUser, handleUpdateUser } = userContext;
 
-    const [name, setName] = useState(currentUser.name); // Agrega la variable de estado para name
-    const [description, setDescription] = useState(currentUser.about); // agrega la variable de estadp para descripcion
+    const [name, setName] = useState(""); // Agrega la variable de estado para name
+    const [description, setDescription] = useState(""); // agrega la variable de estadp para descripcion
+    
+    useEffect(() => {
+        setName(currentUser.name || "");
+        setDescription(currentUser.about || "");
+    }, [currentUser]);
 
     const isValid = name.length > 0 && description.length > 0 && nameError === "" && descriptionError === "";
 
@@ -27,9 +32,9 @@ export default function EditProfile(){
         setDescription(event.target.value);  //actualiza description cuando cambie la entrada
         
         if (!event.target.validity.valid) {
-           setDescriptionError(event.target.validationMessage);
+            setDescriptionError(event.target.validationMessage);
         } else {
-          setDescriptionError("");
+            setDescriptionError("");
         }
     }
 
