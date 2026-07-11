@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const cardSchema = new mongoose.Schema({
   //nombre de la tarjeta, string de 2 a 30 caracteres, campo obligatorio.
     name: {
       type: String, // establece el tipo de datos; mira opciones más abajo
@@ -42,5 +42,7 @@ const userSchema = new mongoose.Schema({
       type: Date,
       default: Date.now
     },
-    about: String, // abreviatura de type: String
+
   });
+
+  module.exports = mongoose.model('card', cardSchema);
