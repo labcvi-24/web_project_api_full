@@ -1,4 +1,5 @@
-import iconDelete from "../../../../images/basura.png"
+import iconDelete from "../../../../images/basura.png";
+const { currentUser } = useContext(CurrentUserContext);
 
 export default function Card({ card, onCardLike, onCardClick, onCardDelete, onOpenPopup}) {
 
@@ -6,8 +7,8 @@ export default function Card({ card, onCardLike, onCardClick, onCardDelete, onOp
         onCardClick(card);
     }
 
+    const isLiked = card.likes.some((like) => like === currentUser._id);
     
-    const isLiked = card.isLiked;
     
     const cardLikeButtonClassName = `card__like-button ${
         isLiked ? 'card__like-button_is-active' : ''}`;

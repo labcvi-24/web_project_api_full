@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
       // el parámetro v es el dato que se tiene que validar
       validate: {
         validator: function(v) {
-          return /^https?:\/\/.+\.(jpg|jpeg|png|gif)$/i.test(v);
+          return validator.isURL(v)
         },
         // mensaje que se mostrará cuando el validador devuelva false
         message: 'Debe ser una URL válida de imagen (.jpg, .jpeg, .png o .gif)',

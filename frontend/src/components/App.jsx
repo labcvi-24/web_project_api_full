@@ -133,7 +133,9 @@ function App() {
 
   async function handleCardLike(card) {
     // Verifica una vez más si a esta tarjeta ya les has dado like
-    const isLiked = card.isLiked;
+    const isLiked = card.likes.some(
+        (like) => like === currentUser._id
+    );
     
     // Envía una solicitud a la API y obtiene los datos actualizados de la tarjeta
     await api.changeLikeCardStatus(card._id, isLiked)

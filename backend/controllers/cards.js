@@ -21,7 +21,13 @@ module.exports.createCard = (req, res, next) => {
     .then((card) => {
       res.status(201).send(card);
     })
-    .catch(err => next(err));
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        err.statusCode = 400;
+        err.message = 'Datos inválidos';
+      }
+      next(err);
+    });
 };
 
 // DELETE /cards/:cardId

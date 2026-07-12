@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 
 const cardSchema = new mongoose.Schema({
   //nombre de la tarjeta, string de 2 a 30 caracteres, campo obligatorio.
@@ -17,7 +18,7 @@ const cardSchema = new mongoose.Schema({
       // el parámetro v es el dato que se tiene que validar
       validate: {
         validator: function(v) {
-          return /^https?:\/\/.+\.(jpg|jpeg|png|gif)$/i.test(v);
+          return validator.isURL(v)
         },
         // mensaje que se mostrará cuando el validador devuelva false
         message: 'no es correcto',
