@@ -28,7 +28,7 @@ function App() {
   const [cards, setCards] = useState([]);
   const [popup, setPopup] = useState(null);
 
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
 
   const onRegister = ({ email, password, }) =>{
     
@@ -132,7 +132,7 @@ function App() {
   }
 
   async function handleCardLike(card) {
-    // Verifica una vez más si a esta tarjeta ya les has dado like
+    // Verifica si hay una coincidencia entre currentUser._id y card.likes.
     const isLiked = card.likes.some(
         (like) => like === currentUser._id
     );

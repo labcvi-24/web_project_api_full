@@ -1,15 +1,22 @@
 import iconDelete from "../../../../images/basura.png";
-const { currentUser } = useContext(CurrentUserContext);
+import { useContext } from "react";
+import CurrentUserContext from "../../../../contexts/CurrentUserContext";
 
 export default function Card({ card, onCardLike, onCardClick, onCardDelete, onOpenPopup}) {
+    
+    const currentUser = useContext(CurrentUserContext);
+    console.log(currentUser);
+    console.log("currentUser:", currentUser);
+    console.log("card.likes:", card.likes);
 
     function handleClick() {
         onCardClick(card);
     }
 
     const isLiked = card.likes.some((like) => like === currentUser._id);
-    
-    
+
+    console.log("isLiked:", isLiked);
+
     const cardLikeButtonClassName = `card__like-button ${
         isLiked ? 'card__like-button_is-active' : ''}`;
 
