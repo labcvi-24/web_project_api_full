@@ -44,7 +44,7 @@ export default function Card({ card, onCardLike, onCardClick, onCardDelete, onOp
             alt={card.name} 
             onClick={handleClick}/>
             <div className="card__description">
-                <h2 className="card__name">{card.name}</h2>
+                <h2 className="card__name">PRUEBA{card.name}</h2>
                 <button
                 type="button" 
                 aria-label="like card" 
