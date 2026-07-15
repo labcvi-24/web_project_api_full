@@ -4,10 +4,7 @@ import CurrentUserContext from "../../../../contexts/CurrentUserContext";
 
 export default function Card({ card, onCardLike, onCardClick, onCardDelete, onOpenPopup}) {
     
-    const currentUser = useContext(CurrentUserContext);
-    console.log(currentUser);
-    console.log("currentUser:", currentUser);
-    console.log("card.likes:", card.likes);
+    const { currentUser } = useContext(CurrentUserContext);
 
     function handleClick() {
         onCardClick(card);
@@ -15,7 +12,7 @@ export default function Card({ card, onCardLike, onCardClick, onCardDelete, onOp
 
     const isLiked = card.likes.some((like) => like === currentUser._id);
 
-    console.log("isLiked:", isLiked);
+    
 
     const cardLikeButtonClassName = `card__like-button ${
         isLiked ? 'card__like-button_is-active' : ''}`;
@@ -44,7 +41,7 @@ export default function Card({ card, onCardLike, onCardClick, onCardDelete, onOp
             alt={card.name} 
             onClick={handleClick}/>
             <div className="card__description">
-                <h2 className="card__name">PRUEBA{card.name}</h2>
+                <h2 className="card__name">{card.name}</h2>
                 <button
                 type="button" 
                 aria-label="like card" 
