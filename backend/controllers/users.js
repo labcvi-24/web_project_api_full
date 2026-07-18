@@ -177,18 +177,3 @@ module.exports.updateProfile = (req, res, next) => {
 
 
 
-
-// /Ahora mismo tienes:
-
-// if (err.name === 'ValidationError') {
-
-// Eso está bien, pero como el campo email es unique: true, MongoDB lanzará un error distinto si alguien intenta registrarse con un correo ya existente.
-
-// Ese error tiene el código:
-
-// err.code === 11000
-
-// Más adelante deberás responder con un estado 409 Conflict. Es muy probable que las siguientes instrucciones del sprint te lo pidan explícitamente.
-
-
-// El middleware de autenticación guarda el usuario en: req.user
