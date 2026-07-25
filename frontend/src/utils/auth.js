@@ -45,7 +45,6 @@ export const getContent = (token) => {
       "Authorization": `Bearer ${token}`
     },
   }).then((res) => {
-    console.log(res);
     return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
   });
 };

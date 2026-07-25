@@ -1,7 +1,7 @@
 const Card = require('../models/card');
 
 // GET /cards
-module.exports.getCards = (req, res) => {
+module.exports.getCards = (req, res, next) => {
   Card.find({})
     .then((cards) => {
       res.send(cards);
